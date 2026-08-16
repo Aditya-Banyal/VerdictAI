@@ -1,0 +1,127 @@
+VerdictAI Project Overview
+VerdictAI is an AI-powered legal document assistant. Users upload legal documents (contracts, agreements, judgments) and have conversational interactions with AI to ask questions about them in plain English.
+________________________________________
+📁 File Structure & Purpose
+Public/Marketing Pages:
+•	index.html - Landing page with hero section, feature showcase, and CTAs ("Launch Workspace")
+•	about.html - About the product
+•	pricing.html - Pricing plans
+•	register.html - User registration form
+Authentication:
+•	login.html - Sign-in form with email/password and social login options (Google, GitHub)
+App Pages (After Login):
+•	dashboard.html - User command center showing stats:
+o	Documents count
+o	Questions asked
+o	Citations found
+o	Storage usage bar
+•	workspace.html - Core feature - Two-panel layout:
+o	Left panel (68%): PDF viewer with zoom, page navigation, search
+o	Right panel (32%): AI copilot chat interface for asking questions about the document
+•	upload.html - Document upload interface:
+o	Drag-and-drop zone for PDF, DOCX, PNG, JPG files
+o	Progress tracking UI
+o	Ready state indicator
+•	documents.html - Document library/search
+•	history.html - Chat/query history
+•	settings.html - User preferences (theme, accent color, motion, density)
+Static Assets:
+•	style.css - Premium dark glass design system:
+o	Color palette (indigo primary, cyan accent, glassmorphism)
+o	Aurora background with animated blobs
+o	Bootstrap integration
+o	Component styles (buttons, forms, cards, modals)
+•	script.js - JavaScript learning framework (currently empty):
+o	Pre-defined element IDs ready for student implementation
+o	Navigation logic, form validation, upload handling, workspace interactions
+________________________________________
+🎨 Design System
+•	Theme: Dark mode with purple/blue gradient accents
+•	Effects: Glassmorphism, blur effects, animated background blobs
+•	UI Components: Custom buttons, cards, forms with premium styling
+•	Responsive: Mobile-first, works on all screen sizes
+________________________________________
+🔄 User Workflow
+1.	Land on index.html → Marketing page
+2.	Sign Up/Login → register.html / login.html
+3.	Upload document → upload.html
+4.	Use workspace → workspace.html (split-view: PDF + AI chat)
+5.	Track activity → dashboard.html, history.html, documents.html
+6.	Customize → settings.html
+________________________________________
+📝 Current Status
+This is a frontend-only educational project. The HTML/CSS is production-ready, but JavaScript logic needs to be implemented step-by-step for:
+•	Form validation
+•	File upload handling
+•	PDF viewer controls
+•	Chat interface interactions
+•	Theme/settings management
+GitHub Copilot
+Analyzed JavaScript tasks from script.js content
+Based on the script.js file, here's what you need to implement in JavaScript:
+________________________________________
+🎯 JavaScript Tasks by Feature
+1. Navigation
+•	#nav-toggle - Mobile menu toggle (open/close sidebar)
+•	#nav-links - Active link highlighting when navigating
+•	#theme-toggle - Dark/light mode switcher
+•	#scroll-progress - Progress bar that fills as user scrolls down page
+________________________________________
+2. Authentication (Login & Register)
+•	#login-form - Form validation & submission
+o	Email validation
+o	Password validation
+o	Display error messages (#email-error, #password-error)
+o	Remember me checkbox functionality
+•	#register-form - Similar validation for sign-up
+•	Social login buttons (Google, GitHub) - click handlers
+________________________________________
+3. Document Upload
+•	#file-input - Handle file selection
+•	#dropzone - Drag & drop zone functionality
+o	Detect drag enter/leave
+o	Handle file drop
+o	File validation (PDF, DOCX, PNG, JPG)
+•	#upload-progress - Show progress UI when uploading
+•	#upload-bar - Animate progress bar (0% → 100%)
+•	#upload-status - Display upload status text
+•	#upload-result - Show success message with file details
+•	#uploaded-name & #uploaded-meta - Display file info (name, size, type)
+________________________________________
+4. Workspace (Core Feature)
+•	#question-input - Text input for asking questions
+•	#ask-form & #ask-button - Submit questions to AI
+•	#chat-messages - Display AI responses (append chat bubbles)
+•	#typing-indicator - Show "AI is thinking..." animation
+•	#suggestions - Display suggested questions
+•	#pdf-viewer - PDF display area (page navigation)
+•	#current-page - Update page number
+•	#zoom-in & #zoom-out - Zoom controls
+•	#zoom-level - Display current zoom percentage
+________________________________________
+5. Documents Library
+•	#doc-search - Search/filter documents
+•	#documents-grid - Display documents in grid/list format
+________________________________________
+6. Settings Panel
+•	#theme-preset - Switch between theme presets
+•	#accent-picker - Color picker for accent color
+•	#motion-intensity - Slider for animation speed
+•	#density - UI density settings (compact/normal/spacious)
+________________________________________
+7. Dashboard
+•	#stat-docs - Update document count dynamically
+•	#stat-questions - Update questions count
+•	#stat-citations - Update citations found
+•	#storage-bar - Display storage usage bar
+________________________________________
+🚀 Priority Order (Recommended)
+1.	Navigation (simplest - toggle, theme, scroll progress)
+2.	Auth (forms & validation)
+1.	
+
+Upload (file handling & drag-drop)
+2.	Workspace (core feature - PDF nav, chat interface)
+3.	Dashboard/Documents/Settings (data display & updates)
+The HTML/CSS is already production-ready — you just need to wire up the interactive behavior! 🎯
+

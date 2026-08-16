@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workspace — VerdictAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-aurora" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="noise"></div>
+  </div>
+
+  <div class="workspace-layout">
+    <!-- LEFT: PDF Viewer (~68%) -->
+    <section class="glass pdf-panel" aria-label="Document reader">
+      <div class="panel-toolbar">
+        <a href="dashboard.html" class="btn-icon" title="Back"><i class="bi bi-arrow-left"></i></a>
+        <div class="flex-grow-1 min-w-0">
+          <div class="small fw-semibold text-truncate" id="doc-title">Service Agreement.pdf</div>
+          <div class="text-muted-va" style="font-size:0.7rem;" id="page-indicator">Page <span id="current-page">1</span> of <span id="total-pages">12</span></div>
+        </div>
+        <div class="d-flex align-items-center gap-1">
+          <button type="button" class="btn-icon" id="zoom-out" title="Zoom out" aria-label="Zoom out"><i class="bi bi-zoom-out"></i></button>
+          <span class="small text-muted-va px-1" id="zoom-level">100%</span>
+          <button type="button" class="btn-icon" id="zoom-in" title="Zoom in" aria-label="Zoom in"><i class="bi bi-zoom-in"></i></button>
+          <button type="button" class="btn-icon" id="search-doc" title="Search" aria-label="Search"><i class="bi bi-search"></i></button>
+          <button type="button" class="btn-icon" id="fullscreen-btn" title="Fullscreen" aria-label="Fullscreen"><i class="bi bi-fullscreen"></i></button>
+        </div>
+      </div>
+
+      <div class="pdf-viewer-area" id="pdf-viewer">
+        <!-- Placeholder “paper” — your JS can replace with real PDF pages later -->
+        <article class="pdf-page" id="pdf-page-1" data-page="1">
+          <h3>MASTER SERVICE AGREEMENT</h3>
+          <p class="meta">Effective Date: 15 January 2026 · Confidential</p>
+          <p>
+            This Master Service Agreement (“Agreement”) is entered into by and between
+            <strong>NovaTech Private Limited</strong>, a company incorporated under the Companies Act, 2013,
+            with its registered office at Bengaluru, Karnataka (“Provider”), and
+            <strong>Apex Legal LLP</strong>, a limited liability partnership registered under the LLP Act, 2008,
+            with its principal place of business at New Delhi (“Client”).
+          </p>
+          <p>
+            <strong>1. Definitions.</strong> For purposes of this Agreement, “Services” means the software,
+            support, and professional services described in any Statement of Work (“SOW”) executed by the parties.
+            “Confidential Information” means non-public information disclosed by either party…
+          </p>
+          <p>
+            <strong>2. Scope of Services.</strong> Provider shall perform the Services in a professional manner
+            consistent with industry standards. Client shall provide timely access to personnel, data, and systems
+            reasonably required for performance…
+          </p>
+          <p>
+            <strong>8. Termination.</strong> Either party may terminate this Agreement for convenience upon thirty (30)
+            days’ prior written notice. Upon termination, Client shall pay for Services rendered through the
+            effective date of termination…
+          </p>
+          <p class="meta text-end mb-0">— 1 —</p>
+        </article>
+      </div>
+
+      <div class="page-thumbs" id="page-thumbs" aria-label="Page thumbnails">
+        <button type="button" class="thumb active" data-page="1" aria-label="Page 1"></button>
+        <button type="button" class="thumb" data-page="2" aria-label="Page 2"></button>
+        <button type="button" class="thumb" data-page="3" aria-label="Page 3"></button>
+        <button type="button" class="thumb" data-page="4" aria-label="Page 4"></button>
+        <button type="button" class="thumb" data-page="5" aria-label="Page 5"></button>
+      </div>
+    </section>
+
+    <!-- RIGHT: AI Copilot (~32%) -->
+    <aside class="glass copilot-panel" aria-label="AI Copilot">
+      <div class="panel-toolbar">
+        <div class="d-flex align-items-center gap-2">
+          <span class="brand-mark" style="width:1.6rem;height:1.6rem;font-size:0.75rem;">V</span>
+          <div>
+            <div class="small fw-semibold">AI Copilot</div>
+            <div class="text-muted-va" style="font-size:0.65rem;">Document-grounded answers</div>
+          </div>
+        </div>
+        <button type="button" class="btn-icon ms-auto" id="new-chat" title="New chat" aria-label="New chat">
+          <i class="bi bi-plus-lg"></i>
+        </button>
+      </div>
+
+      <div class="copilot-messages" id="chat-messages">
+        <div class="msg msg-ai">
+          I’ve read <strong>Service Agreement.pdf</strong>. Ask me about parties, obligations,
+          termination, risk, or anything else in this document.
+          <div class="msg-actions">
+            <button type="button"><i class="bi bi-clipboard"></i> Copy</button>
+            <button type="button"><i class="bi bi-bookmark"></i> Save</button>
+          </div>
+        </div>
+
+        <div class="msg msg-user" id="sample-user-msg">
+          Who are the parties to this agreement?
+        </div>
+
+        <div class="msg msg-ai">
+          The parties are:
+          <ul class="mb-2 mt-2 ps-3">
+            <li><strong>NovaTech Private Limited</strong> (Provider)</li>
+            <li><strong>Apex Legal LLP</strong> (Client)</li>
+          </ul>
+          This appears on the opening page of the agreement.
+          <span class="citation">p.1</span>
+          <div class="msg-actions">
+            <button type="button"><i class="bi bi-clipboard"></i> Copy</button>
+            <button type="button"><i class="bi bi-arrow-repeat"></i> Regenerate</button>
+            <button type="button"><i class="bi bi-bookmark"></i> Save</button>
+          </div>
+        </div>
+
+        <!-- Typing indicator (show/hide with your JS) -->
+        <div class="msg msg-ai" id="typing-indicator" hidden>
+          <span class="typing-dots"><span></span><span></span><span></span></span>
+        </div>
+      </div>
+
+      <div class="suggestions" id="suggestions">
+        <button type="button" class="chip">Summarize this page</button>
+        <button type="button" class="chip">Explain termination clause</button>
+        <button type="button" class="chip">List key risks</button>
+      </div>
+
+      <div class="copilot-input-wrap">
+        <form id="ask-form" action="#" method="get">
+          <div class="copilot-input-box">
+            <button type="button" class="btn-icon" id="attach-btn" aria-label="Attach" title="Attach">
+              <i class="bi bi-paperclip"></i>
+            </button>
+            <textarea
+              id="question-input"
+              name="question"
+              rows="1"
+              placeholder="Ask about this document…"
+              aria-label="Your question"
+            ></textarea>
+            <button type="submit" class="btn-send" id="ask-button" aria-label="Send">
+              <i class="bi bi-arrow-up"></i>
+            </button>
+          </div>
+          <p class="kbd-hint">Press Enter to send · Shift+Enter for new line (wire with JS)</p>
+        </form>
+      </div>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documents — VerdictAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-aurora" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="noise"></div>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a href="index.html" class="brand mb-3 px-2"><span class="brand-mark">V</span> VerdictAI</a>
+      <a class="sidebar-link" href="dashboard.html"><i class="bi bi-grid-1x2"></i> Dashboard</a>
+      <a class="sidebar-link" href="workspace.html"><i class="bi bi-layout-sidebar"></i> Workspace</a>
+      <a class="sidebar-link" href="upload.html"><i class="bi bi-cloud-arrow-up"></i> Upload</a>
+      <a class="sidebar-link active" href="documents.html"><i class="bi bi-folder2-open"></i> Documents</a>
+      <a class="sidebar-link" href="history.html"><i class="bi bi-clock-history"></i> History</a>
+      <a class="sidebar-link" href="settings.html"><i class="bi bi-sliders"></i> Settings</a>
+    </aside>
+
+    <main class="app-main">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+        <div>
+          <p class="section-label mb-2">Library</p>
+          <h1 class="h3 mb-0">Documents</h1>
+        </div>
+        <a href="upload.html" class="btn-premium btn-sm-premium"><i class="bi bi-plus-lg"></i> Upload</a>
+      </div>
+
+      <div class="d-flex flex-wrap gap-2 mb-4">
+        <input type="search" class="form-control-premium" id="doc-search" placeholder="Search documents…" style="max-width:280px;">
+        <button type="button" class="chip active" data-filter="all">All</button>
+        <button type="button" class="chip" data-filter="contracts">Contracts</button>
+        <button type="button" class="chip" data-filter="nda">NDAs</button>
+        <button type="button" class="chip" data-filter="judgments">Judgments</button>
+      </div>
+
+      <div class="row g-3" id="documents-grid">
+        <div class="col-sm-6 col-xl-4" data-type="contracts">
+          <div class="glass doc-card h-100">
+            <div class="doc-preview"></div>
+            <h3 class="h6 mb-1">Service Agreement.pdf</h3>
+            <p class="small text-muted-va mb-3">12 pages · Indexed · 2.4 MB</p>
+            <a href="workspace.html" class="btn-ghost btn-sm-premium">Open workspace</a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-4" data-type="nda">
+          <div class="glass doc-card h-100">
+            <div class="doc-preview"></div>
+            <h3 class="h6 mb-1">NDA_Draft_v3.pdf</h3>
+            <p class="small text-muted-va mb-3">8 pages · Indexed · 1.1 MB</p>
+            <a href="workspace.html" class="btn-ghost btn-sm-premium">Open workspace</a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-4" data-type="contracts">
+          <div class="glass doc-card h-100">
+            <div class="doc-preview"></div>
+            <h3 class="h6 mb-1">Lease_Deed.pdf</h3>
+            <p class="small text-muted-va mb-3">18 pages · Processing · 3.8 MB</p>
+            <a href="workspace.html" class="btn-ghost btn-sm-premium">Open workspace</a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-4" data-type="judgments">
+          <div class="glass doc-card h-100">
+            <div class="doc-preview"></div>
+            <h3 class="h6 mb-1">Supreme_Court_Order.pdf</h3>
+            <p class="small text-muted-va mb-3">42 pages · Indexed · 5.2 MB</p>
+            <a href="workspace.html" class="btn-ghost btn-sm-premium">Open workspace</a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-4" data-type="contracts">
+          <div class="glass doc-card h-100">
+            <div class="doc-preview"></div>
+            <h3 class="h6 mb-1">Employment_Contract.pdf</h3>
+            <p class="small text-muted-va mb-3">6 pages · Indexed · 890 KB</p>
+            <a href="workspace.html" class="btn-ghost btn-sm-premium">Open workspace</a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xl-4" data-type="nda">
+          <div class="glass doc-card h-100">
+            <div class="doc-preview"></div>
+            <h3 class="h6 mb-1">Mutual_NDA.pdf</h3>
+            <p class="small text-muted-va mb-3">4 pages · Indexed · 620 KB</p>
+            <a href="workspace.html" class="btn-ghost btn-sm-premium">Open workspace</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
